@@ -15,8 +15,8 @@ let regulations = {};
 let riskFramework = {};
 
 try {
-  regulations = JSON.parse(fs.readFileSync(path.join(__dirname, '../knowledge-base/regulations.json'), 'utf8'));
-  riskFramework = JSON.parse(fs.readFileSync(path.join(__dirname, '../knowledge-base/risk-framework.json'), 'utf8'));
+  regulations = JSON.parse(fs.readFileSync(path.join(__dirname, './knowledge-base/regulations.json'), 'utf8'));
+riskFramework = JSON.parse(fs.readFileSync(path.join(__dirname, './knowledge-base/risk-framework.json'), 'utf8'));
   console.log('✓ Knowledge bases loaded successfully');
 } catch (error) {
   console.error('Error loading knowledge bases:', error);
