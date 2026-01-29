@@ -1,0 +1,729 @@
+{
+  "risk_assessment_framework": {
+    "methodology": "Multi-factor risk scoring based on jurisdictional requirements, use case, data handling, and deployment context",
+    "risk_levels": {
+      "critical": {
+        "score_range": "90-100",
+        "description": "Immediate legal compliance action required. System likely prohibited or requires extensive remediation.",
+        "actions": [
+          "Immediate legal counsel consultation",
+          "Suspend deployment if already active",
+          "Comprehensive compliance audit",
+          "Regulatory filing preparation"
+        ]
+      },
+      "high": {
+        "score_range": "70-89",
+        "description": "Significant compliance gaps. Immediate attention required before deployment or continued operation.",
+        "actions": [
+          "Detailed compliance roadmap",
+          "Impact assessment completion",
+          "Enhanced documentation",
+          "Regular monitoring and audits"
+        ]
+      },
+      "medium": {
+        "score_range": "40-69",
+        "description": "Moderate risk. Compliance improvements needed but system can operate with risk mitigation.",
+        "actions": [
+          "Implement recommended controls",
+          "Enhanced transparency measures",
+          "Regular compliance reviews",
+          "Staff training"
+        ]
+      },
+      "low": {
+        "score_range": "0-39",
+        "description": "Minimal regulatory risk. Standard best practices apply.",
+        "actions": [
+          "Follow general AI ethics principles",
+          "Document system design",
+          "Voluntary transparency",
+          "Monitor for regulatory changes"
+        ]
+      }
+    },
+    "scoring_factors": {
+      "use_case_risk": {
+        "weight": 35,
+        "categories": {
+          "prohibited": {
+            "score": 100,
+            "examples": [
+              "Social scoring by government",
+              "Real-time biometric surveillance (public spaces, no exception)",
+              "Subliminal manipulation causing harm",
+              "Exploitation of vulnerabilities (age, disability)"
+            ]
+          },
+          "high_risk": {
+            "score": 85,
+            "examples": [
+              "Credit scoring and loan decisions",
+              "Employment screening and decisions",
+              "Educational assessment and admissions",
+              "Law enforcement (risk assessment, evidence evaluation)",
+              "Critical infrastructure (energy, water, transport)",
+              "Access to essential services",
+              "Immigration and asylum decisions",
+              "Judicial outcomes prediction",
+              "Emergency services dispatch"
+            ]
+          },
+          "significant_risk": {
+            "score": 60,
+            "examples": [
+              "Healthcare diagnostics (non-critical)",
+              "Insurance underwriting",
+              "Personalized pricing",
+              "Content moderation",
+              "Recommendation systems (major platforms)",
+              "Workplace productivity monitoring",
+              "Recruitment initial screening"
+            ]
+          },
+          "moderate_risk": {
+            "score": 35,
+            "examples": [
+              "Customer service chatbots",
+              "Marketing and advertising",
+              "Product recommendations (e-commerce)",
+              "Business process automation",
+              "Document analysis and summarization",
+              "Inventory management"
+            ]
+          },
+          "low_risk": {
+            "score": 10,
+            "examples": [
+              "Spam filtering",
+              "Video game AI",
+              "Basic automation tools",
+              "Internal research tools",
+              "Non-personalized recommendations"
+            ]
+          }
+        }
+      },
+      "jurisdiction_risk": {
+        "weight": 25,
+        "scoring": {
+          "eu_operations": {
+            "score": 25,
+            "reason": "Most comprehensive and strict AI regulation globally (AI Act)",
+            "key_triggers": [
+              "Placing AI on EU market",
+              "Providing AI services to EU residents",
+              "Output produced in EU used there"
+            ]
+          },
+          "china_operations": {
+            "score": 24,
+            "reason": "Multiple overlapping regulations, content restrictions, algorithm filing requirements",
+            "key_triggers": [
+              "Operating in Chinese market",
+              "Chinese user data",
+              "Generative AI or recommendation algorithms"
+            ]
+          },
+          "california_operations": {
+            "score": 20,
+            "reason": "Strictest US state, multiple AI-specific laws, CCPA/CPRA automated decision rights",
+            "key_triggers": [
+              "California residents' data",
+              "Automated decisions affecting California consumers",
+              "Biometric data of California residents"
+            ]
+          },
+          "canada_operations": {
+            "score": 18,
+            "reason": "AIDA (proposed) imposes significant requirements, strong privacy laws",
+            "key_triggers": [
+              "High-impact AI systems in Canada",
+              "Canadian personal information processing"
+            ]
+          },
+          "uk_operations": {
+            "score": 15,
+            "reason": "Sector-specific regulation, aligned with but diverging from EU",
+            "key_triggers": [
+              "UK market operations",
+              "Regulated sectors (finance, healthcare, etc.)"
+            ]
+          },
+          "us_federal_operations": {
+            "score": 14,
+            "reason": "Sector-specific regulation, Executive Order for federal contractors",
+            "key_triggers": [
+              "Federal contracts",
+              "Regulated industries (finance, healthcare)",
+              "Multiple state compliance needed"
+            ]
+          },
+          "other_apac": {
+            "score": 12,
+            "reason": "Varying frameworks - Singapore, Australia, Japan, South Korea, India",
+            "key_triggers": [
+              "Operations in each specific market",
+              "Personal data processing under local laws"
+            ]
+          },
+          "brazil_operations": {
+            "score": 13,
+            "reason": "LGPD automated decision rights, AI bill under consideration",
+            "key_triggers": [
+              "Brazilian personal data",
+              "Automated decisions affecting Brazilians"
+            ]
+          }
+        }
+      },
+      "data_sensitivity": {
+        "weight": 20,
+        "categories": {
+          "special_category_biometric": {
+            "score": 100,
+            "description": "Biometric data for unique identification",
+            "regulations": [
+              "GDPR Article 9: Prohibited except with explicit consent or specific legal basis",
+              "BIPA (Illinois): Written consent required",
+              "China: Separate consent, security filing"
+            ]
+          },
+          "special_category_health": {
+            "score": 95,
+            "description": "Health, genetic data",
+            "regulations": [
+              "GDPR Article 9: Explicit consent or specific health exception",
+              "HIPAA: Strict security and privacy requirements",
+              "Medical device regulations if diagnostic use"
+            ]
+          },
+          "special_category_other": {
+            "score": 90,
+            "description": "Race, ethnicity, religion, political opinion, sexual orientation, trade union",
+            "regulations": [
+              "GDPR Article 9: Prohibited except specific circumstances",
+              "Enhanced discrimination risk",
+              "Strict audit requirements"
+            ]
+          },
+          "financial_data": {
+            "score": 75,
+            "description": "Credit history, financial accounts, transactions",
+            "regulations": [
+              "Fair lending laws",
+              "PCI DSS if payment cards",
+              "Financial sector supervision"
+            ]
+          },
+          "children_data": {
+            "score": 85,
+            "description": "Data of individuals under 13-16 (varies by jurisdiction)",
+            "regulations": [
+              "COPPA (US): Parental consent",
+              "GDPR: Enhanced protection, age verification",
+              "Child safety assessments"
+            ]
+          },
+          "personal_identifiable": {
+            "score": 55,
+            "description": "Names, addresses, identifiers, location, online identifiers",
+            "regulations": [
+              "Standard GDPR/CCPA/LGPD requirements",
+              "Transparency and access rights",
+              "Security appropriate to risk"
+            ]
+          },
+          "behavioral_profiles": {
+            "score": 60,
+            "description": "Browsing history, preferences, inferred characteristics",
+            "regulations": [
+              "Profiling provisions under GDPR",
+              "Opt-out rights under CCPA",
+              "Transparency in automated decision-making"
+            ]
+          },
+          "business_data_only": {
+            "score": 20,
+            "description": "Non-personal business data",
+            "regulations": [
+              "Minimal privacy law requirements",
+              "Standard security practices",
+              "Contract and IP considerations"
+            ]
+          },
+          "anonymized_aggregated": {
+            "score": 10,
+            "description": "Properly anonymized data (irreversible)",
+            "regulations": [
+              "Not personal data under GDPR if truly anonymized",
+              "Verify anonymization robustness",
+              "Document anonymization process"
+            ]
+          }
+        }
+      },
+      "decision_impact": {
+        "weight": 15,
+        "categories": {
+          "life_safety": {
+            "score": 100,
+            "description": "Decisions affecting life or serious bodily harm",
+            "examples": [
+              "Medical treatment decisions",
+              "Autonomous vehicle safety systems",
+              "Emergency response prioritization"
+            ]
+          },
+          "legal_rights": {
+            "score": 95,
+            "description": "Legal or similarly significant effects",
+            "examples": [
+              "Criminal justice decisions",
+              "Immigration decisions",
+              "Child custody assessments",
+              "Contract eligibility (major financial)"
+            ]
+          },
+          "significant_economic": {
+            "score": 80,
+            "description": "Major economic consequences",
+            "examples": [
+              "Loan approval/denial",
+              "Employment hiring/firing",
+              "Insurance eligibility",
+              "Housing approval"
+            ]
+          },
+          "moderate_economic": {
+            "score": 55,
+            "description": "Moderate financial or opportunity impact",
+            "examples": [
+              "Pricing variations",
+              "Service prioritization",
+              "Educational opportunities",
+              "Professional licensing support"
+            ]
+          },
+          "limited_impact": {
+            "score": 30,
+            "description": "Minor convenience or experience effects",
+            "examples": [
+              "Content recommendations",
+              "Search rankings",
+              "Personalized marketing",
+              "Customer support routing"
+            ]
+          },
+          "no_individual_impact": {
+            "score": 5,
+            "description": "No direct effect on individuals",
+            "examples": [
+              "Internal business analytics",
+              "Inventory management",
+              "Equipment maintenance prediction"
+            ]
+          }
+        }
+      },
+      "transparency_level": {
+        "weight": 5,
+        "scoring": {
+          "full_transparency": {
+            "score": 0,
+            "description": "Complete documentation, explainability, open disclosure"
+          },
+          "substantial_transparency": {
+            "score": 10,
+            "description": "Good documentation, meaningful explanations, disclosed to users"
+          },
+          "basic_transparency": {
+            "score": 25,
+            "description": "Minimal documentation, basic disclosure, limited explainability"
+          },
+          "opaque": {
+            "score": 50,
+            "description": "Black box system, minimal disclosure, poor documentation"
+          }
+        }
+      }
+    }
+  },
+  "compliance_requirements_matrix": {
+    "high_risk_ai_eu": {
+      "applicable_when": "High-risk AI under EU AI Act + operating in EU",
+      "mandatory_requirements": [
+        {
+          "requirement": "Conformity Assessment",
+          "description": "Third-party assessment before market placement (for certain categories)",
+          "timeline": "Before deployment",
+          "responsible_party": "AI Provider",
+          "evidence_needed": [
+            "Technical documentation",
+            "Quality management system",
+            "Test results and validation"
+          ]
+        },
+        {
+          "requirement": "Risk Management System",
+          "description": "Continuous identification, assessment, mitigation of risks throughout lifecycle",
+          "timeline": "Ongoing",
+          "responsible_party": "AI Provider",
+          "evidence_needed": [
+            "Risk management plan",
+            "Risk log",
+            "Mitigation measures documentation",
+            "Post-market monitoring data"
+          ]
+        },
+        {
+          "requirement": "Data Governance",
+          "description": "Training, validation, testing data must be relevant, representative, free of errors, complete",
+          "timeline": "Design phase onwards",
+          "responsible_party": "AI Provider",
+          "evidence_needed": [
+            "Data sourcing documentation",
+            "Data quality metrics",
+            "Bias testing results",
+            "Data governance policies"
+          ]
+        },
+        {
+          "requirement": "Technical Documentation",
+          "description": "Comprehensive documentation of system design, development, capabilities, limitations",
+          "timeline": "Throughout development",
+          "responsible_party": "AI Provider",
+          "evidence_needed": [
+            "System architecture",
+            "Training methodology",
+            "Performance metrics",
+            "Limitations documentation"
+          ]
+        },
+        {
+          "requirement": "Record-keeping (Logging)",
+          "description": "Automatic recording of events throughout system lifetime",
+          "timeline": "Operational phase",
+          "responsible_party": "AI Provider + Deployer",
+          "evidence_needed": [
+            "Log retention policies",
+            "Log content specifications",
+            "Access controls for logs"
+          ]
+        },
+        {
+          "requirement": "Transparency and User Information",
+          "description": "Clear information to deployers and users about capabilities and limitations",
+          "timeline": "Before deployment",
+          "responsible_party": "AI Provider",
+          "evidence_needed": [
+            "Instructions for use",
+            "User documentation",
+            "Capability statements",
+            "Known limitations disclosure"
+          ]
+        },
+        {
+          "requirement": "Human Oversight",
+          "description": "Measures to ensure effective oversight by natural persons",
+          "timeline": "Design and operational",
+          "responsible_party": "AI Provider + Deployer",
+          "evidence_needed": [
+            "Oversight mechanisms design",
+            "Training for overseers",
+            "Override capabilities",
+            "Oversight logs"
+          ]
+        },
+        {
+          "requirement": "Accuracy, Robustness, Cybersecurity",
+          "description": "Appropriate levels of accuracy and protection against errors and threats",
+          "timeline": "Throughout lifecycle",
+          "responsible_party": "AI Provider",
+          "evidence_needed": [
+            "Testing protocols",
+            "Performance benchmarks",
+            "Security measures",
+            "Incident response plans"
+          ]
+        },
+        {
+          "requirement": "Fundamental Rights Impact Assessment",
+          "description": "Assessment of impact on fundamental rights (for specific high-risk systems)",
+          "timeline": "Before deployment",
+          "responsible_party": "Deployer",
+          "evidence_needed": [
+            "Impact assessment report",
+            "Stakeholder consultation records",
+            "Mitigation measures"
+          ]
+        },
+        {
+          "requirement": "Registration in EU Database",
+          "description": "Register high-risk AI system in EU database",
+          "timeline": "Before market placement",
+          "responsible_party": "AI Provider",
+          "evidence_needed": [
+            "Registration confirmation",
+            "System information submitted"
+          ]
+        }
+      ]
+    },
+    "automated_decision_making_gdpr": {
+      "applicable_when": "Automated decisions with legal/similarly significant effects on EU individuals",
+      "mandatory_requirements": [
+        {
+          "requirement": "Legal Basis for Processing",
+          "description": "One of six legal bases under GDPR Article 6",
+          "options": [
+            "Explicit consent (Article 6(1)(a) + Article 9(2)(a) for special category)",
+            "Contract necessity (Article 6(1)(b))",
+            "Legal obligation (Article 6(1)(c))",
+            "Vital interests (Article 6(1)(d))",
+            "Public task (Article 6(1)(e))",
+            "Legitimate interests (Article 6(1)(f)) - with balancing test"
+          ],
+          "evidence_needed": [
+            "Legal basis documentation",
+            "Legitimate interests assessment (if applicable)",
+            "Consent records (if applicable)"
+          ]
+        },
+        {
+          "requirement": "Right to Human Intervention",
+          "description": "Data subject can request human review of automated decision (Article 22)",
+          "timeline": "Operational",
+          "evidence_needed": [
+            "Human review process",
+            "Request handling procedures",
+            "Review outcomes documentation"
+          ]
+        },
+        {
+          "requirement": "Right to Explanation",
+          "description": "Meaningful information about logic involved in automated decisions",
+          "timeline": "At data collection and upon request",
+          "evidence_needed": [
+            "Privacy notice including decision logic",
+            "Explanation procedures",
+            "Response templates"
+          ]
+        },
+        {
+          "requirement": "Data Protection Impact Assessment",
+          "description": "DPIA required for high-risk processing including systematic automated decisions",
+          "timeline": "Before processing begins",
+          "evidence_needed": [
+            "Completed DPIA",
+            "Risk mitigation measures",
+            "DPO consultation record (if applicable)"
+          ]
+        }
+      ]
+    },
+    "financial_ai_us": {
+      "applicable_when": "AI in US financial services (banking, lending, insurance)",
+      "mandatory_requirements": [
+        {
+          "requirement": "Model Risk Management (SR 11-7)",
+          "description": "Federal Reserve guidance on model validation and governance",
+          "components": [
+            "Model development and implementation",
+            "Model validation (independent)",
+            "Model governance and controls"
+          ],
+          "evidence_needed": [
+            "Model documentation",
+            "Validation reports",
+            "Governance framework"
+          ]
+        },
+        {
+          "requirement": "Fair Lending Compliance",
+          "description": "Compliance with ECOA, Fair Housing Act - no discrimination",
+          "timeline": "Throughout lifecycle",
+          "evidence_needed": [
+            "Bias testing results",
+            "Disparate impact analysis",
+            "Monitoring reports",
+            "Adverse action notices design"
+          ]
+        },
+        {
+          "requirement": "Explainability for Adverse Actions",
+          "description": "Specific reasons for credit denial under ECOA",
+          "timeline": "Operational",
+          "evidence_needed": [
+            "Adverse action notice templates",
+            "Reason code mapping",
+            "Documentation of decision factors"
+          ]
+        },
+        {
+          "requirement": "Third-Party Risk Management",
+          "description": "Due diligence and oversight of AI vendors (OCC, FDIC, Fed guidance)",
+          "timeline": "Vendor selection onwards",
+          "evidence_needed": [
+            "Vendor risk assessments",
+            "Contracts with appropriate clauses",
+            "Ongoing monitoring evidence"
+          ]
+        }
+      ]
+    },
+    "healthcare_ai_global": {
+      "applicable_when": "AI in healthcare/medical contexts",
+      "mandatory_requirements": [
+        {
+          "requirement": "Medical Device Approval (if diagnostic/therapeutic)",
+          "description": "FDA (US), CE Mark (EU), MHRA (UK), TGA (Australia) approval",
+          "timeline": "Before market placement",
+          "evidence_needed": [
+            "Clinical validation studies",
+            "510(k) or PMA submission (US)",
+            "Clinical evaluation report (EU)",
+            "Post-market surveillance plan"
+          ]
+        },
+        {
+          "requirement": "Health Data Privacy Compliance",
+          "description": "HIPAA (US), GDPR Article 9 (EU), national health privacy laws",
+          "timeline": "Throughout lifecycle",
+          "evidence_needed": [
+            "Business Associate Agreements (US)",
+            "Security risk assessments",
+            "Encryption and access controls",
+            "Breach notification procedures"
+          ]
+        },
+        {
+          "requirement": "Clinical Validation",
+          "description": "Evidence of safety and effectiveness in intended use",
+          "timeline": "Before deployment",
+          "evidence_needed": [
+            "Clinical trial results",
+            "Real-world performance data",
+            "Peer-reviewed publications",
+            "Comparison to standard of care"
+          ]
+        },
+        {
+          "requirement": "Adverse Event Reporting",
+          "description": "Report patient safety incidents to regulators",
+          "timeline": "Operational",
+          "evidence_needed": [
+            "Adverse event procedures",
+            "Reporting records",
+            "Root cause analyses"
+          ]
+        }
+      ]
+    },
+    "china_generative_ai": {
+      "applicable_when": "Generative AI services in China",
+      "mandatory_requirements": [
+        {
+          "requirement": "Algorithm Filing and Security Assessment",
+          "description": "File algorithm with CAC, complete security assessment",
+          "timeline": "Before public service launch",
+          "responsible_party": "Service Provider",
+          "evidence_needed": [
+            "Filing confirmation number",
+            "Security assessment report",
+            "Algorithm description"
+          ]
+        },
+        {
+          "requirement": "Content Compliance",
+          "description": "Training data and outputs must comply with Chinese laws, socialist values",
+          "timeline": "Design and operational",
+          "evidence_needed": [
+            "Content filtering mechanisms",
+            "Training data review",
+            "Output monitoring",
+            "Compliance audit records"
+          ]
+        },
+        {
+          "requirement": "User Identity Verification",
+          "description": "Real-name registration for service providers",
+          "timeline": "Service provision",
+          "evidence_needed": [
+            "Identity verification systems",
+            "User agreement with real-name clause",
+            "Records retention"
+          ]
+        },
+        {
+          "requirement": "Generated Content Labeling",
+          "description": "Mark content as AI-generated",
+          "timeline": "Operational",
+          "evidence_needed": [
+            "Labeling implementation",
+            "User interface showing labels",
+            "Audit trails"
+          ]
+        }
+      ]
+    }
+  },
+  "decision_trees": {
+    "initial_risk_categorization": {
+      "question_1": {
+        "q": "Does the AI system make automated decisions with legal or similarly significant effects on individuals?",
+        "yes": "HIGH_RISK_PATHWAY",
+        "no": "question_2"
+      },
+      "question_2": {
+        "q": "Does the AI system operate in one of these domains: critical infrastructure, education, employment, law enforcement, migration/asylum, justice, or safety components?",
+        "yes": "HIGH_RISK_PATHWAY",
+        "no": "question_3"
+      },
+      "question_3": {
+        "q": "Does the AI system process special category data (biometric for identification, health, genetic, race, ethnicity, religion, sexual orientation, political opinion)?",
+        "yes": "HIGH_RISK_PATHWAY",
+        "no": "question_4"
+      },
+      "question_4": {
+        "q": "Is the AI system customer-facing and could users be unaware they are interacting with AI?",
+        "yes": "TRANSPARENCY_PATHWAY",
+        "no": "question_5"
+      },
+      "question_5": {
+        "q": "Does the AI system create synthetic media (deepfakes, generated images/video/audio)?",
+        "yes": "TRANSPARENCY_PATHWAY",
+        "no": "GENERAL_PURPOSE_PATHWAY"
+      }
+    },
+    "jurisdiction_mapping": {
+      "question_1": {
+        "q": "Where are end users of the AI system located?",
+        "options": {
+          "EU": "Check EU AI Act + GDPR compliance",
+          "California_US": "Check CCPA + CA AI laws + federal sector laws",
+          "Other_US_States": "Check federal + specific state laws",
+          "China": "Check Algorithm Regs + Deep Synthesis + Generative AI rules",
+          "Canada": "Check AIDA (when active) + PIPEDA",
+          "UK": "Check sector regulator + UK GDPR",
+          "Singapore": "Check PDPA + Model Framework",
+          "Australia": "Check Privacy Act + sector rules",
+          "Japan": "Check APPI + sector guidance",
+          "South_Korea": "Check PIPA + Framework Act (when active)",
+          "Brazil": "Check LGPD + AI bill (when active)",
+          "India": "Check DPDP Act rules (when published)",
+          "Multiple": "Aggregate all applicable jurisdictions"
+        }
+      },
+      "question_2": {
+        "q": "Where is the AI system provider/deployer located?",
+        "note": "Provider location may trigger additional obligations even if users elsewhere"
+      },
+      "question_3": {
+        "q": "Where is data processed or stored?",
+        "note": "Data localization laws may apply (China, Russia, India considerations)"
+      }
+    }
+  }
+}

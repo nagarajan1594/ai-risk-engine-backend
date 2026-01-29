@@ -1,0 +1,633 @@
+{
+  "regions": {
+    "EU": {
+      "name": "European Union",
+      "primary_regulation": "AI Act",
+      "regulations": [
+        {
+          "id": "EU-AI-ACT-2024",
+          "name": "EU Artificial Intelligence Act",
+          "status": "Enacted",
+          "effective_date": "2024-08-01",
+          "full_compliance_date": "2026-08-01",
+          "jurisdiction": "EU Member States",
+          "summary": "Comprehensive AI regulation based on risk-based approach with four risk categories",
+          "risk_categories": {
+            "unacceptable": {
+              "level": "Prohibited",
+              "examples": ["Social scoring by governments", "Real-time biometric identification in public spaces (with exceptions)", "Subliminal manipulation", "Exploitation of vulnerabilities"],
+              "penalties": "Up to €35 million or 7% of global annual turnover"
+            },
+            "high": {
+              "level": "Strict Requirements",
+              "examples": ["CV screening tools", "Credit scoring", "Educational assessment", "Critical infrastructure", "Law enforcement", "Biometric identification"],
+              "requirements": [
+                "Conformity assessment",
+                "Risk management system",
+                "Data governance",
+                "Technical documentation",
+                "Record-keeping",
+                "Transparency",
+                "Human oversight",
+                "Cybersecurity measures"
+              ],
+              "penalties": "Up to €15 million or 3% of global annual turnover"
+            },
+            "limited": {
+              "level": "Transparency Obligations",
+              "examples": ["Chatbots", "Emotion recognition", "Deepfakes"],
+              "requirements": ["Users must be informed they are interacting with AI"],
+              "penalties": "Up to €7.5 million or 1.5% of global annual turnover"
+            },
+            "minimal": {
+              "level": "No Specific Requirements",
+              "examples": ["Spam filters", "Video games"],
+              "requirements": ["Voluntary codes of conduct encouraged"]
+            }
+          },
+          "key_obligations": [
+            "Providers must ensure compliance before market placement",
+            "Mandatory fundamental rights impact assessments for high-risk AI",
+            "AI literacy programs for staff",
+            "Post-market monitoring systems",
+            "Incident reporting to authorities"
+          ],
+          "enforcement": {
+            "authority": "National Supervisory Authorities + EU AI Office",
+            "market_surveillance": "Ongoing monitoring and audits",
+            "complaint_mechanism": "Available to affected individuals"
+          }
+        },
+        {
+          "id": "GDPR-AI",
+          "name": "GDPR as Applied to AI",
+          "status": "Active",
+          "effective_date": "2018-05-25",
+          "key_provisions": [
+            "Article 22: Right not to be subject to automated decision-making",
+            "Article 13-14: Information about automated decision-making logic",
+            "Article 35: DPIA required for automated processing with legal/similar significant effects",
+            "Article 5: Data minimization and purpose limitation apply to AI training data"
+          ],
+          "ai_specific_requirements": [
+            "Explicit consent for automated decisions with legal effects",
+            "Right to explanation of AI decisions",
+            "Data protection by design and default for AI systems",
+            "Records of processing activities including AI algorithms"
+          ]
+        }
+      ]
+    },
+    "USA": {
+      "name": "United States",
+      "primary_regulation": "Sector-Specific + State Laws",
+      "regulations": [
+        {
+          "id": "USA-EO-14110",
+          "name": "Executive Order 14110 on Safe, Secure, and Trustworthy AI",
+          "status": "Active",
+          "effective_date": "2023-10-30",
+          "jurisdiction": "Federal Agencies",
+          "summary": "Establishes standards for AI safety and security, particularly for federal use",
+          "key_requirements": [
+            "Developers of powerful AI systems must share safety test results with government",
+            "NIST to develop AI Risk Management Framework",
+            "Federal agencies must inventory AI use cases",
+            "Chief AI Officers required in major agencies",
+            "Red-team testing for foundation models"
+          ],
+          "applicability": "Direct requirements for federal contractors and voluntary for private sector"
+        },
+        {
+          "id": "USA-ALGORITHMIC-ACCOUNTABILITY-ACT",
+          "name": "Proposed Algorithmic Accountability Act",
+          "status": "Proposed",
+          "summary": "Would require impact assessments for automated decision systems",
+          "requirements": [
+            "Impact assessments for critical decisions affecting consumers",
+            "Documentation of AI system design and training data",
+            "Ongoing monitoring for bias and discrimination"
+          ]
+        },
+        {
+          "id": "CALIFORNIA-SB-1047",
+          "name": "California Safe and Secure Innovation for Frontier AI Models Act",
+          "status": "Vetoed 2024, but sets precedent",
+          "summary": "Would have required safety testing for large AI models",
+          "threshold": "Models trained with >$100M compute or 10^26 FLOPS",
+          "proposed_requirements": [
+            "Safety and security protocols",
+            "Ability to shut down models",
+            "Third-party audits",
+            "Incident reporting"
+          ]
+        },
+        {
+          "id": "USA-STATE-LAWS",
+          "name": "State-Level AI Regulations",
+          "states": {
+            "California": {
+              "laws": [
+                "CCPA/CPRA: Automated decision-making transparency",
+                "AB 2013: Prohibits deepfakes in elections",
+                "Civil Code 1798.185: Right to opt-out of automated decisions"
+              ]
+            },
+            "Colorado": {
+              "laws": [
+                "SB 21-169: High-risk AI systems impact assessments (effective 2026)",
+                "Requirements for insurance, employment, education, financial, housing AI"
+              ]
+            },
+            "Illinois": {
+              "laws": [
+                "Biometric Information Privacy Act (BIPA): Consent for biometric AI",
+                "AI Video Interview Act: Disclosure requirements"
+              ]
+            },
+            "New York City": {
+              "laws": [
+                "Local Law 144: Bias audits for hiring AI tools",
+                "Effective since 2023"
+              ]
+            }
+          }
+        },
+        {
+          "id": "USA-SECTOR-FINANCE",
+          "name": "Financial Sector AI Regulations",
+          "regulators": ["Federal Reserve", "OCC", "CFPB"],
+          "requirements": [
+            "Model Risk Management (SR 11-7)",
+            "Fair lending compliance (ECOA, Fair Housing Act)",
+            "Explainability for credit decisions",
+            "Third-party risk management for AI vendors"
+          ]
+        },
+        {
+          "id": "USA-SECTOR-HEALTHCARE",
+          "name": "Healthcare AI Regulations",
+          "regulators": ["FDA", "HHS", "OCR"],
+          "requirements": [
+            "FDA premarket approval for AI medical devices",
+            "HIPAA compliance for health data in AI",
+            "Clinical validation for diagnostic AI",
+            "Software as Medical Device (SaMD) framework"
+          ]
+        }
+      ]
+    },
+    "UK": {
+      "name": "United Kingdom",
+      "primary_regulation": "Pro-Innovation Approach",
+      "regulations": [
+        {
+          "id": "UK-AI-WHITE-PAPER",
+          "name": "AI Regulation White Paper",
+          "status": "Policy Framework",
+          "effective_date": "2023-03-29",
+          "approach": "Sector-specific regulation through existing regulators",
+          "five_principles": [
+            "Safety, security and robustness",
+            "Appropriate transparency and explainability",
+            "Fairness",
+            "Accountability and governance",
+            "Contestability and redress"
+          ],
+          "regulators": {
+            "ICO": "Data protection and privacy",
+            "FCA": "Financial services AI",
+            "Ofcom": "Online content and communications",
+            "CMA": "Competition and consumer protection",
+            "MHRA": "Healthcare and medical devices",
+            "HSE": "Workplace safety"
+          }
+        },
+        {
+          "id": "UK-GDPR",
+          "name": "UK GDPR",
+          "status": "Active",
+          "differences_from_eu": "Largely aligned but diverging post-Brexit",
+          "ai_requirements": [
+            "Automated decision-making rights (Article 22 equivalent)",
+            "Data protection impact assessments for high-risk AI",
+            "ICO guidance on AI and data protection"
+          ]
+        }
+      ]
+    },
+    "CANADA": {
+      "name": "Canada",
+      "primary_regulation": "AIDA (Proposed)",
+      "regulations": [
+        {
+          "id": "CANADA-AIDA",
+          "name": "Artificial Intelligence and Data Act",
+          "status": "Proposed (Bill C-27)",
+          "summary": "Companion to privacy law modernization, regulates high-impact AI",
+          "scope": "AI systems that may cause serious harm",
+          "key_requirements": [
+            "Impact assessments for high-impact systems",
+            "Risk mitigation measures",
+            "Record-keeping and transparency",
+            "Incident reporting",
+            "Human oversight in decision-making"
+          ],
+          "penalties": "Up to CAD $25 million or 5% of global revenue",
+          "enforcement": "AI and Data Commissioner"
+        },
+        {
+          "id": "CANADA-PIPEDA-AI",
+          "name": "PIPEDA and AI",
+          "status": "Active",
+          "ai_guidance": [
+            "Consent required for automated decision-making",
+            "Accountability for AI systems",
+            "Accuracy of personal information in AI",
+            "Right to challenge automated decisions"
+          ]
+        },
+        {
+          "id": "CANADA-DIRECTIVE",
+          "name": "Directive on Automated Decision-Making",
+          "status": "Active (Government of Canada)",
+          "effective_date": "2019-04-01",
+          "scope": "Federal government AI systems",
+          "impact_levels": {
+            "Level_I": "Limited or no impact",
+            "Level_II": "Moderate impact - peer review required",
+            "Level_III": "High impact - monitoring required",
+            "Level_IV": "Very high impact - full impact assessment"
+          }
+        }
+      ]
+    },
+    "CHINA": {
+      "name": "People's Republic of China",
+      "primary_regulation": "Multi-layered regulatory framework",
+      "regulations": [
+        {
+          "id": "CHINA-ALGORITHM-2022",
+          "name": "Algorithmic Recommendation Regulations",
+          "status": "Active",
+          "effective_date": "2022-03-01",
+          "scope": "Recommendation algorithms, ranking, filtering",
+          "requirements": [
+            "Algorithm filing with CAC (Cyberspace Administration)",
+            "User rights to opt-out of algorithmic recommendations",
+            "Prohibition on price discrimination",
+            "Protection of labor rights (e.g., gig workers)",
+            "Content moderation obligations",
+            "Transparency in algorithm mechanisms"
+          ]
+        },
+        {
+          "id": "CHINA-DEEP-SYNTHESIS-2023",
+          "name": "Deep Synthesis Regulations",
+          "status": "Active",
+          "effective_date": "2023-01-10",
+          "scope": "Deepfakes, synthetic media, generative AI",
+          "requirements": [
+            "Watermarking of AI-generated content",
+            "User identity verification for service providers",
+            "Content security assessment",
+            "Prominent labeling of synthetic content",
+            "Prohibition of illegal content generation",
+            "Data security measures"
+          ]
+        },
+        {
+          "id": "CHINA-GENERATIVE-AI-2023",
+          "name": "Generative AI Service Management Measures",
+          "status": "Active",
+          "effective_date": "2023-08-15",
+          "scope": "ChatGPT-like services, image generation, other generative AI",
+          "requirements": [
+            "Security assessment and algorithm filing",
+            "Training data must comply with Chinese law",
+            "Content must reflect socialist core values",
+            "Prevention of discrimination and illegal content",
+            "Protection of intellectual property",
+            "Labeling of generated content",
+            "User complaint mechanisms"
+          ],
+          "penalties": "Service suspension, fines up to RMB 100,000"
+        },
+        {
+          "id": "CHINA-PIPL",
+          "name": "Personal Information Protection Law",
+          "status": "Active",
+          "effective_date": "2021-11-01",
+          "ai_provisions": [
+            "Automated decision-making transparency",
+            "Right to refuse automated decisions",
+            "Fair and transparent algorithms",
+            "Impact assessments for sensitive personal information processing"
+          ]
+        }
+      ]
+    },
+    "SINGAPORE": {
+      "name": "Singapore",
+      "primary_regulation": "Model AI Governance Framework",
+      "regulations": [
+        {
+          "id": "SINGAPORE-MODEL-FRAMEWORK",
+          "name": "Model AI Governance Framework",
+          "status": "Voluntary guidance",
+          "version": "2.0 (2020)",
+          "approach": "Principles-based, sector-agnostic",
+          "principles": [
+            "Explainability, transparency and fairness",
+            "Human oversight",
+            "Safety and security",
+            "Accountability",
+            "Data governance"
+          ],
+          "implementation": [
+            "Internal governance structures",
+            "Risk management",
+            "Customer relationship management",
+            "Stakeholder engagement"
+          ]
+        },
+        {
+          "id": "SINGAPORE-PDPA-AI",
+          "name": "PDPA and AI",
+          "status": "Active",
+          "ai_guidance": [
+            "Deemed consent for beneficial AI uses",
+            "Accountability for automated decisions",
+            "Data accuracy obligations for AI",
+            "Advisory Guidelines on AI and Personal Data"
+          ]
+        }
+      ]
+    },
+    "AUSTRALIA": {
+      "name": "Australia",
+      "primary_regulation": "Voluntary framework + sector regulation",
+      "regulations": [
+        {
+          "id": "AUSTRALIA-AI-ETHICS",
+          "name": "AI Ethics Principles",
+          "status": "Voluntary",
+          "released": "2019",
+          "principles": [
+            "Human, societal and environmental wellbeing",
+            "Human-centered values",
+            "Fairness",
+            "Privacy protection and security",
+            "Reliability and safety",
+            "Transparency and explainability",
+            "Contestability",
+            "Accountability"
+          ]
+        },
+        {
+          "id": "AUSTRALIA-PRIVACY-ACT-AI",
+          "name": "Privacy Act 1988 and AI",
+          "status": "Active, reform proposed",
+          "ai_provisions": [
+            "APP 1.2: Manage personal information in AI systems",
+            "Automated decision-making consideration in privacy management",
+            "Proposed reforms: explicit automated decision-making rights"
+          ]
+        },
+        {
+          "id": "AUSTRALIA-PROPOSED-REGULATION",
+          "name": "Safe and Responsible AI in Australia",
+          "status": "Consultation phase (2023-2024)",
+          "proposed_approach": "Risk-based, mandatory guardrails for high-risk AI",
+          "considerations": [
+            "Mandatory risk assessments",
+            "Transparency requirements",
+            "Human oversight",
+            "Complaints mechanism"
+          ]
+        }
+      ]
+    },
+    "JAPAN": {
+      "name": "Japan",
+      "primary_regulation": "Soft law + sector-specific",
+      "regulations": [
+        {
+          "id": "JAPAN-AI-PRINCIPLES",
+          "name": "Social Principles of Human-Centric AI",
+          "status": "Policy framework",
+          "released": "2019",
+          "principles": [
+            "Human dignity",
+            "Diversity and inclusion",
+            "Sustainability",
+            "Privacy",
+            "Security",
+            "Fair competition",
+            "Fairness, accountability and transparency"
+          ]
+        },
+        {
+          "id": "JAPAN-AI-GUIDELINES",
+          "name": "AI Utilization Guidelines",
+          "status": "Voluntary (various sectors)",
+          "sectors": [
+            "Medical devices: PMDA guidance on AI/ML medical devices",
+            "Financial services: FSA monitoring of AI in finance",
+            "Autonomous vehicles: Regulatory framework"
+          ]
+        },
+        {
+          "id": "JAPAN-APPI-AI",
+          "name": "Act on Protection of Personal Information and AI",
+          "status": "Active",
+          "amendments": "2022 amendments address automated profiling",
+          "ai_requirements": [
+            "Notice for automated decision-making using personal data",
+            "Right to request disclosure of logic in automated decisions",
+            "Pseudonymization for AI training data"
+          ]
+        }
+      ]
+    },
+    "BRAZIL": {
+      "name": "Brazil",
+      "primary_regulation": "AI Bill + LGPD",
+      "regulations": [
+        {
+          "id": "BRAZIL-AI-BILL",
+          "name": "Brazilian AI Bill (PL 2338/2023)",
+          "status": "Under consideration",
+          "approach": "Risk-based, inspired by EU AI Act",
+          "proposed_risk_levels": [
+            "Excessive risk: Prohibited",
+            "High risk: Strict requirements",
+            "General AI: Basic transparency"
+          ],
+          "proposed_requirements": [
+            "Impact assessments for high-risk AI",
+            "Transparency and explainability",
+            "Human oversight",
+            "Governance authority (ANPD or new body)"
+          ]
+        },
+        {
+          "id": "BRAZIL-LGPD-AI",
+          "name": "LGPD and Automated Decisions",
+          "status": "Active",
+          "effective_date": "2020-09-18",
+          "article_20": "Right to review automated decisions affecting interests",
+          "requirements": [
+            "Information about decision-making criteria",
+            "Right to request human review",
+            "Prohibition of discriminatory automated decisions",
+            "Data protection impact assessment for automated processing"
+          ]
+        }
+      ]
+    },
+    "INDIA": {
+      "name": "India",
+      "primary_regulation": "Emerging framework",
+      "regulations": [
+        {
+          "id": "INDIA-DPDP-ACT",
+          "name": "Digital Personal Data Protection Act 2023",
+          "status": "Enacted, rules pending",
+          "ai_provisions": [
+            "Automated decision-making provisions expected in rules",
+            "Consent for processing personal data in AI",
+            "Data localization requirements may affect AI training"
+          ]
+        },
+        {
+          "id": "INDIA-AI-STRATEGY",
+          "name": "National Strategy for AI",
+          "status": "Policy document",
+          "released": "2018",
+          "focus": "#AIforAll - emphasis on social development",
+          "sectors": [
+            "Healthcare",
+            "Agriculture",
+            "Education",
+            "Smart cities",
+            "Infrastructure"
+          ]
+        },
+        {
+          "id": "INDIA-IT-RULES-2021",
+          "name": "IT Rules 2021 - Due Diligence",
+          "status": "Active",
+          "relevance_to_ai": [
+            "Content moderation using AI must follow prescribed timelines",
+            "Traceability requirements may affect encrypted AI systems",
+            "Grievance redressal mechanisms for AI-driven platforms"
+          ]
+        }
+      ]
+    },
+    "SOUTH_KOREA": {
+      "name": "South Korea",
+      "primary_regulation": "AI Framework Act (proposed)",
+      "regulations": [
+        {
+          "id": "KOREA-AI-FRAMEWORK-ACT",
+          "name": "Framework Act on Artificial Intelligence",
+          "status": "Proposed (expected 2024-2025)",
+          "approach": "Comprehensive national AI law",
+          "proposed_elements": [
+            "AI impact assessments",
+            "Trustworthy AI standards",
+            "National AI Committee",
+            "Support for AI industry development",
+            "Risk management requirements"
+          ]
+        },
+        {
+          "id": "KOREA-PIPA-AI",
+          "name": "Personal Information Protection Act and AI",
+          "status": "Active",
+          "amendments": "2023 amendments address AI",
+          "requirements": [
+            "Pseudonymization for AI/big data processing",
+            "Automated decision-making transparency",
+            "Right to object to automated decisions",
+            "Special category data protection in AI"
+          ]
+        }
+      ]
+    }
+  },
+  "cross_cutting_frameworks": {
+    "OECD_AI_PRINCIPLES": {
+      "name": "OECD AI Principles",
+      "adopted": "2019",
+      "signatories": "42 countries",
+      "principles": [
+        "Inclusive growth, sustainable development and well-being",
+        "Human-centered values and fairness",
+        "Transparency and explainability",
+        "Robustness, security and safety",
+        "Accountability"
+      ],
+      "influence": "Foundation for many national AI policies"
+    },
+    "ISO_IEC_AI_STANDARDS": {
+      "name": "ISO/IEC AI Standards",
+      "key_standards": {
+        "ISO_IEC_42001": "AI Management System",
+        "ISO_IEC_23894": "Risk Management for AI",
+        "ISO_IEC_TR_24028": "Trustworthiness in AI",
+        "ISO_IEC_38507": "Governance implications of AI"
+      },
+      "applicability": "International voluntary standards for AI governance"
+    },
+    "IEEE_ETHICALLY_ALIGNED_DESIGN": {
+      "name": "IEEE Ethically Aligned Design",
+      "focus": "Technical standards for ethical AI",
+      "standards": [
+        "IEEE 7000: Model process for addressing ethical concerns",
+        "IEEE 7001: Transparency of autonomous systems",
+        "IEEE 7010: Well-being metrics for AI"
+      ]
+    }
+  },
+  "sector_specific_global": {
+    "financial_services": {
+      "key_considerations": [
+        "Basel Committee on Banking Supervision: AI in credit risk",
+        "IOSCO: AI in market surveillance",
+        "Anti-money laundering: AI for transaction monitoring",
+        "Algorithmic trading: Market manipulation risks",
+        "Credit scoring: Fair lending and bias"
+      ]
+    },
+    "healthcare": {
+      "key_considerations": [
+        "Medical device regulation: AI/ML Software as Medical Device",
+        "Clinical validation requirements",
+        "Patient safety and adverse event reporting",
+        "Data privacy in health AI (HIPAA, GDPR)",
+        "FDA, EMA, MHRA regulatory pathways"
+      ]
+    },
+    "employment": {
+      "key_considerations": [
+        "EEOC (US): AI in hiring and discrimination",
+        "EU AI Act: High-risk classification for HR AI",
+        "Workplace surveillance and privacy",
+        "Automated termination decisions",
+        "Bias in resume screening and interviews"
+      ]
+    },
+    "education": {
+      "key_considerations": [
+        "FERPA (US): Student data in educational AI",
+        "Automated grading and assessment fairness",
+        "Proctoring software privacy concerns",
+        "EU AI Act: High-risk for educational AI",
+        "Accessibility and inclusive design"
+      ]
+    }
+  }
+}
